@@ -19,6 +19,9 @@
       "strings": true
     },
     "editor.tabSize": 2,
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "css.lint.validProperties": ["speak"],    
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "'Cascadia Code', 'Fira Code'",
   }
 }

@@ -1,18 +1,23 @@
-import { NextPage } from "next";
-import React from "react";
-import "../styles/globals.css";
-import type { AppProps } from "next/app";
+import React from 'react';
+import type { AppProps } from 'next/app';
 
-export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
-  getLayout?: (page: React.ReactElement) => React.ReactNode;
-};
+import '../styles/globals.css';
+
+import { MainLayout } from '../components';
+import { NextPageWithLayout } from '../types/common';
 
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
+  locale?: string;
 };
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
-  return <Component {...pageProps} />;
+  return (
+    <MainLayout>
+      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+      <Component {...pageProps} />
+    </MainLayout>
+  );
 }
 
 export default MyApp;

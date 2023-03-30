@@ -1,16 +1,15 @@
-import { NextPage } from "next";
-import useTranslation from "next-translate/useTranslation";
+import { NextPage } from 'next';
+import useTranslation from 'next-translate/useTranslation';
 
-const Home: NextPage = () => {
+type Props = {};
+
+const Home: NextPage<Props> = () => {
   const { t } = useTranslation();
-  const commonTitle = t("common:title");
-  const homeTitle = t("home:title");
-
+  const title = t('home:title');
   return (
-    <>
-      <div>{commonTitle}</div>
-      <div>{homeTitle}</div>
-    </>
+    <div className="bg-[#52b788] w-screen h-screen flex items-center justify-center text-center font-semibold text-4xl">
+      {title}
+    </div>
   );
 };
 

@@ -1,10 +1,24 @@
 /** @type {import('next').NextConfig} */
-const nextTranslate = require('next-translate');
+import nextTranslate from 'next-translate';
 
 const nextConfig = nextTranslate({
   reactStrictMode: true,
   swcMinify: true,
   output: 'standalone',
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cms.toto.com',
+        pathname: '/api/**',
+      },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        pathname: '/api/**',
+      },
+    ],
+  },
 });
 
-module.exports = nextConfig;
+export default nextConfig;
